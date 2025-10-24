@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>ES-6 features</title>
+    </heaad>
+    <body>
+        <h2>Shopping App 🛍️</h2>
+        <script>
+            //let and const
+            const appname = "SmartShop";
+            let user = "priya";
+            let carttotal = 0;
+
+            //Template Literals
+            console.log(`Welcome to ${appname},${user}! Enjoy your shopping🛒`);
+            
+            //Default Parameters
+            function greetuser(name = "customer", greeting = "Hello"){
+                return `${greeting},${name}! Thanks for visiting ${appname}.`;
+            }
+            console.log(greetuser(user,"hii"));
+            console.log(greetuser());
+
+            //Destructuring from array
+            const categories = ["Electronics","Clothings","Groceries"];
+            const [firstcat,secondcat] = categories;
+            console.log(`Top categories: ${firstcat} and ${secondcat}.`);
+
+            //Destructuring from object
+            const product = { id: 501, name: "Bluethooth speaker", price: 1200};
+            const {id,name,price} = product;
+            console.log(`Product Details -> ID: ${id},Name: ${name},Price: ${price}`);
+
+            //Spreed Operators
+            const newcategories = [...categories, "Home Decor", "Sports"];
+            console.log("All the available categories: ",newcategories);
+            
+            //Rest Operators
+            const calculatebill = (...prices) => prices.reduce((total,p) => total+p,0);
+            carttotal = calculatebill(499, 799, 299, 999);
+            console.log(`Total Bill Amount: ${carttotal}`);
+
+            //Arrow Function(Concise Function)
+            const discount = amount => amount*0.1;
+            const showmessage = () => "Special offer: 10% off on all items!";
+            const additems = (a,b) => a+b;
+
+            console.log(showmessage());
+            console.log(`Discount on  ₹${carttotal} =  ₹${discount(carttotal).toFixed(2)}`);
+            console.log(`Adding two sample item prices: ₹${additems(250,350)}`);            
+        </script>
+    </body>
+</html>
